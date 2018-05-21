@@ -1,6 +1,6 @@
 /* eslint-disable */
 <template>
-  <div class="product-list">
+  <div class="product-list container">
        <div class="actions">
       <router-link class="btn btn-default" v-bind:to="{path: '/add-product'}">
         <span class="glyphicon glyphicon-plus"></span>
@@ -29,8 +29,8 @@
         </td>
         <td>{{ product.description }}</td>
         <td>
+          <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
           {{ product.price }}
-          <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
         </td>
         <td>
           <router-link class="btn btn-warning btn-xs" v-bind:to="{name: 'product-edit', params: {product_id: product.id}}">Edit</router-link>
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { products, findProduct, findProductKey } from '../data';
+import { products, findProduct, findProductKey } from "../data";
 export default {
   name: "List",
   data() {
@@ -63,4 +63,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.form-group {
+  max-width: 500px;
+}
+
+.actions {
+  padding: 10px 0;
+  text-align: left;
+}
+
+.glyphicon-usd {
+  font-size: 12px;
+}
 </style>

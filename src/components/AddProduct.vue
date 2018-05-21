@@ -1,6 +1,6 @@
 /* eslint-disable */
 <template>
-  <div class="add-product">
+  <div class="add-product container">
        <h2>Add new product</h2>
     <form v-on:submit="createProduct">
       <div class="form-group">
@@ -12,7 +12,7 @@
         <textarea class="form-control" id="add-description" rows="10" v-model="product.description"></textarea>
       </div>
       <div class="form-group">
-        <label for="add-price">Price, <span class="glyphicon glyphicon-euro"></span></label>
+        <label for="add-price">Price, <span class="glyphicon glyphicon-usd"></span></label>
         <input type="number" class="form-control" id="add-price" v-model="product.price"/>
       </div>
       <button type="submit" class="btn btn-primary">Create</button>
@@ -46,5 +46,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.form-group {
+      max-width: 500px;
+    }
+
+    .actions {
+      padding: 10px 0;
+    }
+
+    .glyphicon-usd {
+      font-size: 12px;
+    }
 
 </style>

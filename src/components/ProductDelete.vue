@@ -1,6 +1,6 @@
 /* eslint-disable */
 <template>
-  <div class="delete-product">
+  <div class="delete-product container">
        <h2>Delete product {{ product.name }}</h2>
     <form v-on:submit="deleteProduct">
       <p>The action cannot be undone.</p>
@@ -20,7 +20,7 @@ export default {
   methods: {
     deleteProduct: function() {
       products.splice(findProductKey(this.$route.params.product_id), 1);
-      router.push("/");
+      this.$router.push("/");
     }
   }
 };
@@ -28,4 +28,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.form-group {
+      max-width: 500px;
+    }
+
+    .actions {
+      padding: 10px 0;
+    }
+
+    .glyphicon-usd {
+      font-size: 12px;
+    }
+
 </style>

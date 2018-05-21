@@ -1,6 +1,6 @@
 /* eslint-disable */
 <template>
-  <div class="product">
+  <div class="product container">
         <h2>{{ product.name }}</h2>
     <b>Description: </b>
     <div>{{ product.description }}</div>
@@ -24,4 +24,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.form-group {
+      max-width: 500px;
+    }
+
+    .actions {
+      padding: 10px 0;
+    }
+
+    .glyphicon-usd {
+      font-size: 12px;
+    }
+
 </style>
