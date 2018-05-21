@@ -1,6 +1,6 @@
 /* eslint-disable */
 <template>
-  <div class="list">
+  <div class="product-list">
        <div class="actions">
       <router-link class="btn btn-default" v-bind:to="{path: '/add-product'}">
         <span class="glyphicon glyphicon-plus"></span>
@@ -43,16 +43,24 @@
 </template>
 
 <script>
+import { products, findProduct, findProductKey } from '../data';
 export default {
-  name: 'List',
-  data () {
-    return {
+  name: "List",
+  data() {
+    return { products: products, searchKey: "" };
+  },
+  computed: {
+    filteredProducts: function() {
+      return this.products.filter(function(product) {
+        return (
+          this.searchKey == "" || product.name.indexOf(this.searchKey) !== -1
+        );
+      }, this);
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>

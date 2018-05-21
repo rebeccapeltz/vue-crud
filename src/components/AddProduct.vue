@@ -22,10 +22,12 @@
 </template>
 
 <script>
+import { products, findProduct, findProductKey } from '../data';
 export default {
   name: 'AddProduct',
   data () {
-    return {product: {name: '', description: '', price: ''}}
+    return {product: {name: '', description: '', price: ''},
+    products: products}
   },
   methods: {
     createProduct: function () {

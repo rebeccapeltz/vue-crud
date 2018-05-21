@@ -11,15 +11,21 @@
 </template>
 
 <script>
+import { products, findProduct, findProductKey } from '../data';
 export default {
-  name: 'ProductDelete',
-  data () {
-    return {}
+  name: "ProductDelete",
+  data() {
+    return { product: findProduct(this.$route.params.product_id),products: products };
+  },
+  methods: {
+    deleteProduct: function() {
+      products.splice(findProductKey(this.$route.params.product_id), 1);
+      router.push("/");
+    }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>

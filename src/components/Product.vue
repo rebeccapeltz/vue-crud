@@ -13,10 +13,11 @@
 </template>
 
 <script>
+import { products, findProduct, findProductKey } from '../data';
 export default {
   name: 'Product',
   data () {
-    return {}
+    return {product: findProduct(this.$route.params.product_id),products: products};
   }
 }
 </script>
