@@ -1,0 +1,58 @@
+/* eslint-disable */
+<template>
+  <div class="list">
+       <div class="actions">
+      <router-link class="btn btn-default" v-bind:to="{path: '/add-product'}">
+        <span class="glyphicon glyphicon-plus"></span>
+        Add product
+      </router-link>
+    </div>
+    <div class="filters row">
+      <div class="form-group col-sm-3">
+        <label for="search-element">Product name</label>
+        <input v-model="searchKey" class="form-control" id="search-element" requred/>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th class="col-sm-2">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="(product,index) in filteredProducts" v-bind:key="index">
+        <td>
+          <router-link v-bind:to="{name: 'product', params: {product_id: product.id}}">{{ product.name }}</router-link>
+        </td>
+        <td>{{ product.description }}</td>
+        <td>
+          {{ product.price }}
+          <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+        </td>
+        <td>
+          <router-link class="btn btn-warning btn-xs" v-bind:to="{name: 'product-edit', params: {product_id: product.id}}">Edit</router-link>
+          <router-link class="btn btn-danger btn-xs" v-bind:to="{name: 'product-delete', params: {product_id: product.id}}">Delete</router-link>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'List',
+  data () {
+    return {
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+</style>
